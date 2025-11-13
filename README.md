@@ -1,4 +1,4 @@
-模型平台：rk3568（必须要转成自己的开发板版本）
+工程为手关键点（handpose）检测，模型平台：rk3568（必须要转成自己的开发板版本）
 ```
 环境配置：https://github.com/airockchip/rknn-toolkit2
 rknn-toolkit2
