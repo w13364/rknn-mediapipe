@@ -11,8 +11,6 @@ manylinux2014_aarch64.whl,arm64_requirements_cp38.txt
 如果觉得安装包太大，只装rknn-toolkit-lite2-v2.0.0b1对应的python版本，然后拷贝下面三个文件到对应目录。
 
 
-
-
 rknn-toolkit2-master
 │      
 └── rknpu2
