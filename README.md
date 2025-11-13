@@ -50,11 +50,12 @@ make -f Makefile.blaze_rknn clean && make -f Makefile.blaze_rknn
 ```
 
 
-Demo情况，推理单图耗时：121ms
-
-![8365d5dd1414cb00b5e89223db33dded](https://github.com/user-attachments/assets/e493164a-c060-4073-a14a-a30481d67dbe)
-
+Demo情况，推理单图耗时：121ms。
 
 摄像头流推理展示在　“摄像头流推理结果.mp4”　有３个阈值调整，可以参考视频里的情况自行调整
+
+<img width="688" height="552" alt="image" src="https://github.com/user-attachments/assets/62688335-44bb-4eea-a76d-b3a418eb7467" />
+
+
 
 
