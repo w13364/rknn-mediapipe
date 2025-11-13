@@ -7,11 +7,10 @@ rknn_toolkit2-2.3.2-cp38-cp38-manylinux_2_17_aarch64
 manylinux2014_aarch64.whl,arm64_requirements_cp38.txt
 
 
-把这三个文件拷贝到对应你的include和lib里，工程里也有。
-如果觉得安装包太大，只装rknn-toolkit-lite2-v2.0.0b1对应的python版本，然后拷贝下面三个文件到对应目录。
 ```
 
-
+把这三个文件拷贝到对应你的include和lib里。
+如果觉得安装包太大，只装rknn-toolkit-lite2-v2.0.0b1对应的python版本。
 ```
 rknn-toolkit2-master
 │      
@@ -56,5 +55,6 @@ Demo情况，推理单图耗时：121ms
 ![8365d5dd1414cb00b5e89223db33dded](https://github.com/user-attachments/assets/e493164a-c060-4073-a14a-a30481d67dbe)
 
 
+摄像头流推理展示在　“摄像头流推理结果.mp4”　有３个阈值调整，可以参考视频里的情况自行调整
 
 
