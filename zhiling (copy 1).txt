@@ -1,0 +1,195 @@
+./blaze_detect_single_rknn 9.jpg
+[INFO] 当前配置:
+  应用类型: hand
+  检测模型: models/hand_detector.rknn
+  关键点模型: models/hand_landmarks_detector.rknn
+  输入图像: 9.jpg
+[INFO] 正在加载检测模型...
+[Detector.set_min_score_threshold] Set threshold to: 0.75
+[INFO] 正在加载关键点模型...
+[INFO] 正在加载图像...
+[INFO] 图像尺寸: 640x480
+padded图像尺寸: [192 x 192]
+scale值: 3.33333
+pad_left(padw1): 0, pad_top(padh1): 24
+[RKNN Output Tensors - Raw Form]
+Output[0] (Regression) - Raw Data: 
+output0[0] = -563.5
+output0[1] = -458
+output0[2] = -53.75
+output0[3] = -53.6562
+output0[4] = -414.5
+output0[5] = -397
+output0[6] = -631
+output0[7] = -799
+output0[8] = -622
+output0[9] = -787.5
+output0[10] = -632.5
+output0[11] = -872
+output0[12] = -654
+output0[13] = -999.5
+output0[14] = -461.5
+output0[15] = -270
+output0[16] = -480.5
+output0[17] = 7.87109
+output0[18] = -375.5
+output0[19] = -287
+... and 36268 more values
+Output[0] size: 36288 floats
+Output[1] (Classification) - Raw Data: 
+output1[0] = -285.75
+output1[1] = -342
+output1[2] = -443
+output1[3] = -321.75
+output1[4] = -472.75
+output1[5] = -344.75
+output1[6] = -506.5
+output1[7] = -384
+output1[8] = -486.5
+output1[9] = -418.75
+output1[10] = -510.5
+output1[11] = -483
+output1[12] = -545.5
+output1[13] = -569
+output1[14] = -588.5
+output1[15] = -671
+output1[16] = -641.5
+output1[17] = -804
+output1[18] = -711.5
+output1[19] = -908.5
+... and 1996 more values
+Output[1] size: 2016 floats
+----------------------------------------
+[Detector.predict_on_batch] 原始置信度张量的前10个最大值:
+排名[1]: 索引=94, 原始置信度值=-113.125000
+排名[2]: 索引=46, 原始置信度值=-137.750000
+排名[3]: 索引=42, 原始置信度值=-187.875000
+排名[4]: 索引=44, 原始置信度值=-190.875000
+排名[5]: 索引=95, 原始置信度值=-210.375000
+排名[6]: 索引=142, 原始置信度值=-243.125000
+排名[7]: 索引=144, 原始置信度值=-261.500000
+排名[8]: 索引=93, 原始置信度值=-284.000000
+排名[9]: 索引=0, 原始置信度值=-285.750000
+排名[10]: 索引=90, 原始置信度值=-287.750000
+----------------------------------------
+[Detector.predict_on_batch] 模型推理原始关键点值 (前5个锚框):
+锚框 0:
+  边界框原始值: x_center=-563.500000, y_center=-458.000000, width=-53.750000, height=-53.656250
+  7个关键点原始值: 
+    关键点[0]: x_raw=-414.500000, y_raw=-397.000000
+    关键点[1]: x_raw=-631.000000, y_raw=-799.000000
+    关键点[2]: x_raw=-622.000000, y_raw=-787.500000
+    关键点[3]: x_raw=-632.500000, y_raw=-872.000000
+    关键点[4]: x_raw=-654.000000, y_raw=-999.500000
+    关键点[5]: x_raw=-461.500000, y_raw=-270.000000
+    关键点[6]: x_raw=-480.500000, y_raw=7.871094
+----------------------------------------
+锚框 1:
+  边界框原始值: x_center=-375.500000, y_center=-287.000000, width=139.375000, height=137.125000
+  7个关键点原始值: 
+    关键点[0]: x_raw=-121.562500, y_raw=-100.937500
+    关键点[1]: x_raw=-497.250000, y_raw=-631.000000
+    关键点[2]: x_raw=-494.000000, y_raw=-646.500000
+    关键点[3]: x_raw=-483.250000, y_raw=-717.500000
+    关键点[4]: x_raw=-497.000000, y_raw=-860.500000
+    关键点[5]: x_raw=-219.750000, y_raw=13.546875
+    关键点[6]: x_raw=-244.625000, y_raw=272.000000
+----------------------------------------
+锚框 2:
+  边界框原始值: x_center=-379.250000, y_center=-401.000000, width=103.312500, height=103.375000
+  7个关键点原始值: 
+    关键点[0]: x_raw=-365.750000, y_raw=-384.000000
+    关键点[1]: x_raw=-346.250000, y_raw=-692.000000
+    关键点[2]: x_raw=-361.000000, y_raw=-693.000000
+    关键点[3]: x_raw=-402.000000, y_raw=-808.000000
+    关键点[4]: x_raw=-461.000000, y_raw=-984.000000
+    关键点[5]: x_raw=-334.000000, y_raw=-195.375000
+    关键点[6]: x_raw=-280.500000, y_raw=163.625000
+----------------------------------------
+锚框 3:
+  边界框原始值: x_center=-306.000000, y_center=-200.250000, width=249.875000, height=247.875000
+  7个关键点原始值: 
+    关键点[0]: x_raw=-212.000000, y_raw=-51.968750
+    关键点[1]: x_raw=-231.250000, y_raw=-506.500000
+    关键点[2]: x_raw=-306.000000, y_raw=-500.750000
+    关键点[3]: x_raw=-359.250000, y_raw=-611.000000
+    关键点[4]: x_raw=-408.000000, y_raw=-831.500000
+    关键点[5]: x_raw=-201.625000, y_raw=123.625000
+    关键点[6]: x_raw=-182.375000, y_raw=465.750000
+----------------------------------------
+锚框 4:
+  边界框原始值: x_center=-438.500000, y_center=-474.250000, width=105.125000, height=105.312500
+  7个关键点原始值: 
+    关键点[0]: x_raw=-451.500000, y_raw=-467.250000
+    关键点[1]: x_raw=-390.500000, y_raw=-901.500000
+    关键点[2]: x_raw=-415.000000, y_raw=-908.500000
+    关键点[3]: x_raw=-466.500000, y_raw=-1064.000000
+    关键点[4]: x_raw=-533.500000, y_raw=-1305.000000
+    关键点[5]: x_raw=-371.500000, y_raw=-181.625000
+    关键点[6]: x_raw=-333.000000, y_raw=326.750000
+----------------------------------------
+[INFO] 检测到的对象数量: 0
+[INFO] 检测完成，耗时: 77.070 ms
+[INFO] 请按任意键退出...
+
+
+
+
+
+
+
+make -f Makefile.blaze_rknn clean && make -f Makefile.blaze_rknn
+
+LD_LIBRARY_PATH=./blaze_tflite/tflite_libs_cpp/lib ./blaze_tflite/blaze_detect_live
+LD_LIBRARY_PATH=./tflite_libs_cpp/lib ./blaze_detect_live
+
+./blaze_detect_rknn
+
+[RKNN Output Tensors - Raw Form]
+Output[0] (Regression) - Raw Data: 
+output0[0] = -1.7e+03
+output0[1] = -2.2e+03
+output0[2] = 1.5e+03
+output0[3] = 1.5e+03
+output0[4] = -1.4e+03
+output0[5] = -2.4e+03
+output0[6] = -1.9e+03
+output0[7] = -2.6e+03
+output0[8] = -1.8e+03
+output0[9] = -2.6e+03
+output0[10] = -1.6e+03
+output0[11] = -2.7e+03
+output0[12] = -1.5e+03
+output0[13] = -2.9e+03
+output0[14] = -1.1e+03
+output0[15] = -1.1e+03
+output0[16] = -5.2e+02
+output0[17] = 4.5e+02
+output0[18] = -1.1e+03
+output0[19] = -1.9e+03
+... and 36268 more values
+Output[0] size: 36288 floats
+Output[1] (Classification) - Raw Data: 
+output1[0] = 37
+output1[1] = -2.4e+02
+output1[2] = -5.9e+02
+output1[3] = -6.8e+02
+output1[4] = -1.7e+03
+output1[5] = -1.5e+03
+output1[6] = -2.4e+03
+output1[7] = -2.5e+03
+output1[8] = -3.1e+03
+output1[9] = -3.6e+03
+output1[10] = -3.4e+03
+output1[11] = -4.2e+03
+output1[12] = -3.3e+03
+output1[13] = -4.4e+03
+output1[14] = -3.3e+03
+output1[15] = -4.5e+03
+output1[16] = -3.2e+03
+output1[17] = -4.3e+03
+output1[18] = -2.8e+03
+output1[19] = -4e+03
+... and 1996 more values
+Output[1] size: 2016 floats
+

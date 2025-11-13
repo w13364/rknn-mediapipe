@@ -1,0 +1,46 @@
+# Directories
+TFLITE_INCLUDE_DIR := ./tensorflow/lite ./tensorflow/lite/core ./flatbuffers
+TFLITE_LIBRARY_DIR := ./tflite_libs_cpp/lib
+BUILD_DIR := build
+
+# Compiler and Flags
+CXX := g++
+CXXFLAGS := -O3 -pthread -std=c++17
+
+INCFLAGS := -I/usr/include/opencv4 -I./blaze_common -I. -I$(TFLITE_INCLUDE_DIR)
+LDFLAGS := -L. -L$(TFLITE_LIBRARY_DIR) -Wl,-rpath,.
+LIBS := -ltensorflowLite -lopencv_core -lopencv_video -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lpthread
+
+# Sources and Objects
+COMMON_SRCS := blaze_common/visualization.cpp blaze_common/Config.cpp blaze_common/Base.cpp
+TFLITE_SRCS := Detector.cpp Landmark.cpp blaze_detect_live.cpp
+SRCS := $(COMMON_SRCS) $(TFLITE_SRCS)
+OBJS := $(addprefix $(BUILD_DIR)/, $(notdir $(SRCS:.cpp=.o)))
+
+# Target binary
+TARGET := blaze_detect_live
+
+# Default rule
+all: $(TARGET)
+
+# Clean build directory
+clean:
+	-rm -rf $(BUILD_DIR)/*.o $(TARGET)
+
+# Ensure build directory exists
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+# Build object files
+$(BUILD_DIR)/%.o: blaze_common/%.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $(INCFLAGS) -c $< -o $@
+
+# Add rule for root directory cpp files
+$(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $(INCFLAGS) -c $< -o $@
+
+# Link all objects into the final executable
+$(TARGET): $(OBJS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS) $(LIBS)
+
+.PHONY: all clean

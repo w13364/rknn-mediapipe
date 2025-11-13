@@ -1,0 +1,63 @@
+RKNN_INCLUDE_DIR := /usr/local/include
+RKNN_LIBRARY_DIR := /usr/lib
+BUILD_DIR := build
+
+# Compiler and Flags
+CXX := g++
+CXXFLAGS := -O3 -pthread -std=c++17
+
+# 包含目录设置
+INCFLAGS := -I/usr/include/opencv4 -I./blaze_common -I. \
+           -I$(RKNN_INCLUDE_DIR)
+
+# 链接标志和库设置
+LDFLAGS := -L. -Wl,-rpath,. -Wl,-rpath,/usr/lib  # RKNN库的路径可能需要根据实际安装位置修改
+LIBS := -lrknn_api -lopencv_core -lopencv_video -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lpthread
+
+# Sources and Objects
+COMMON_SRCS := blaze_common/visualization.cpp blaze_common/Config.cpp blaze_common/Base.cpp
+DETECTOR_SRCS := Detector.cpp Landmark.cpp
+SINGLE_SRCS := $(DETECTOR_SRCS) blaze_detect_single_image.cpp
+VIDEO_SRCS := $(DETECTOR_SRCS) blaze_detect_video.cpp
+LIVE_SRCS := $(DETECTOR_SRCS) blaze_detect_live.cpp
+
+# 目标二进制文件
+SINGLE_TARGET := blaze_detect_single_rknn
+VIDEO_TARGET := blaze_detect_video_rknn
+LIVE_TARGET := blaze_detect_live_rknn
+
+# 所有目标
+ALL_TARGETS := $(SINGLE_TARGET) $(VIDEO_TARGET) $(LIVE_TARGET)
+
+# 默认规则
+all: $(ALL_TARGETS)
+
+# Clean build directory
+clean:
+	-rm -rf $(BUILD_DIR)/*.o $(ALL_TARGETS)
+
+# Ensure build directory exists
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+# Build object files from common directory
+$(BUILD_DIR)/%.o: blaze_common/%.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $(INCFLAGS) -c $< -o $@
+
+# Build object files from root directory
+$(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $(INCFLAGS) -c $< -o $@
+
+# Link single image target
+$(SINGLE_TARGET): $(BUILD_DIR)/Detector.o $(BUILD_DIR)/Landmark.o $(BUILD_DIR)/blaze_detect_single_image.o $(BUILD_DIR)/visualization.o $(BUILD_DIR)/Config.o $(BUILD_DIR)/Base.o
+	$(CXX) -o $@ $^ $(LDFLAGS) $(LIBS)
+
+# Link video target
+$(VIDEO_TARGET): $(BUILD_DIR)/Detector.o $(BUILD_DIR)/Landmark.o $(BUILD_DIR)/blaze_detect_video.o $(BUILD_DIR)/visualization.o $(BUILD_DIR)/Config.o $(BUILD_DIR)/Base.o
+	$(CXX) -o $@ $^ $(LDFLAGS) $(LIBS)
+
+# Link live target
+$(LIVE_TARGET): $(BUILD_DIR)/Detector.o $(BUILD_DIR)/Landmark.o $(BUILD_DIR)/blaze_detect_live.o $(BUILD_DIR)/visualization.o $(BUILD_DIR)/Config.o $(BUILD_DIR)/Base.o
+	$(CXX) -o $@ $^ $(LDFLAGS) $(LIBS)
+
+.PHONY: all clean

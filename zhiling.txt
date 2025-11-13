@@ -1,0 +1,55 @@
+make -f Makefile.blaze_rknn clean && make -f Makefile.blaze_rknn
+
+LD_LIBRARY_PATH=./blaze_tflite/tflite_libs_cpp/lib ./blaze_tflite/blaze_detect_live
+LD_LIBRARY_PATH=./tflite_libs_cpp/lib ./blaze_detect_live
+
+./blaze_detect_rknn
+./blaze_detect_video_rknn -o output.mp4
+[RKNN Output Tensors - Raw Form]
+Output[0] (Regression) - Raw Data: 
+output0[0] = -1.7e+03
+output0[1] = -2.2e+03
+output0[2] = 1.5e+03
+output0[3] = 1.5e+03
+output0[4] = -1.4e+03
+output0[5] = -2.4e+03
+output0[6] = -1.9e+03
+output0[7] = -2.6e+03
+output0[8] = -1.8e+03
+output0[9] = -2.6e+03
+output0[10] = -1.6e+03
+output0[11] = -2.7e+03
+output0[12] = -1.5e+03
+output0[13] = -2.9e+03
+output0[14] = -1.1e+03
+output0[15] = -1.1e+03
+output0[16] = -5.2e+02
+output0[17] = 4.5e+02
+output0[18] = -1.1e+03
+output0[19] = -1.9e+03
+... and 36268 more values
+Output[0] size: 36288 floats
+Output[1] (Classification) - Raw Data: 
+output1[0] = 37
+output1[1] = -2.4e+02
+output1[2] = -5.9e+02
+output1[3] = -6.8e+02
+output1[4] = -1.7e+03
+output1[5] = -1.5e+03
+output1[6] = -2.4e+03
+output1[7] = -2.5e+03
+output1[8] = -3.1e+03
+output1[9] = -3.6e+03
+output1[10] = -3.4e+03
+output1[11] = -4.2e+03
+output1[12] = -3.3e+03
+output1[13] = -4.4e+03
+output1[14] = -3.3e+03
+output1[15] = -4.5e+03
+output1[16] = -3.2e+03
+output1[17] = -4.3e+03
+output1[18] = -2.8e+03
+output1[19] = -4e+03
+... and 1996 more values
+Output[1] size: 2016 floats
+
