@@ -51,11 +51,10 @@ make -f Makefile.blaze_rknn clean && make -f Makefile.blaze_rknn
 ```
 
 
-```
 Demo情况，推理单图耗时：121ms
 
 ![8365d5dd1414cb00b5e89223db33dded](https://github.com/user-attachments/assets/e493164a-c060-4073-a14a-a30481d67dbe)
-```
+
 
 
 
