@@ -261,7 +261,7 @@ std::vector<std::vector<Detection>> Detector::predict_on_batch(const std::vector
     cv::Mat img = x[0].clone();
     
     // Convert BGR to RGB
-    cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
+    //cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
     // 关键修复：调用preprocess函数进行归一化处理
     cv::Mat preprocessed_img = preprocess(img);
     
